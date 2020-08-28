@@ -164,11 +164,105 @@
 #fi
 
 ## LOGICAL AND OPERATOR
-age=50
-if [ "$age" -gt 18 ] && [ "$age" -lt 30 ]
-# you can also do this as well if [ "$age" -gt 18 && "$age" -lt 30 ] 
-then
- echo "valid age"
-else 
- echo "age not valid"
-fi
+#age=50
+#if [ "$age" -gt 18 ] && [ "$age" -lt 30 ]
+# you can also do this as well if [ "$age" -gt 18 -a "$age" -lt 30 ] -a flag stand for and operator
+# also you can do this if [[ "$age" -gt 18 && "$age" -lt 30 ]]
+#then
+# echo "valid age"
+#else 
+# echo "age not valid"
+#fi
+
+## LOGICAL OR OPERATOR
+#age=25
+#if [ "$age" -gt 18 ] || [ "$age" -lt 30 ]
+# or you can do this if [ "$age" -gt 18 -o "$age" -lt 30 ] -o flag is for OR operator
+# or you can do this if [[ "$age" -gt 18 || "$age" -lt 30 ]]
+#then
+#	echo "valid age"
+#else 
+#	echo "age not valid"
+#fi
+
+
+##ARITHMETIC OPERATION
+#num1=20
+#num2=5
+
+#echo $(( num1 + num2 )) #to perform arithmetic operations
+#echo $(( num1 - num2 )) #to perform arithmetic operations
+#echo $(( num1 * num2 )) #to perform arithmetic operations
+#echo $(( num1 / num2 )) #to perform arithmetic operations
+#echo $(( num1 % num2 )) #to perform arithmetic operations
+#alternative for arithmetic operations
+#echo $(expr $num1 + $num2 ) #to perform arithmetic operations
+#echo $(expr $num1 - $num2 ) #to perform arithmetic operations
+#echo $(expr $num1 \* $num2 ) # must use backslash here
+#echo $(expr $num1 / $num2 ) #to perform arithmetic operations
+#echo $(expr $num1 % $num2 ) #to perform arithmetic operations
+
+##FLOATING POINT MATH OPERATIONS
+#num1=20.5
+#num2=5
+
+#echo "20.5 + 5" | bc #left hand side gets treated as in input for bc
+#echo "20.5 - 5" | bc #left hand side gets treated as in input for bc
+#echo "20.5 * 5" | bc #left hand side gets treated as in input for bc
+#echo "scale=2;20.5 / 5" | bc #left hand side gets treated as in input for bc, scale for decimal point value
+#echo "20.5 % 5" | bc #left hand side gets treated as in input for bc
+#echo "$num1+$num2" | bc
+#num=4
+#echo "scale=2;sqrt($num)" | bc -l # -l calling math library where the sqrt function lives
+#echo "scale=2;3^3" | bc -l #3 to power 3
+
+## CASE STATMENT
+
+#basic syntax
+#case expression in 
+#	pattern1 )
+#		statements ;; #double ; means the case statement ended
+#	pattern2 )
+#		statements ;;
+#	...
+#esac #ending of case
+
+#example
+
+#echo -e "Enter some characters: \c"
+#read value
+
+#case $value in 
+#	[a-z] ) #regex
+#		echo "User entered $value a to z";;
+#	[A-Z] )
+#		echo "user entered $value A to Z";;
+#	[0-9] )
+#		echo "user entered $value 0 - 9";;
+#	? ) #expects any 1 character
+#		echo "user entered $value special character";;
+#	* ) #wild card that matches any text, 1 or more character
+#		echo "default case"
+#	       echo "unknown ";;	
+#esac
+
+
+
+##ARRAYS VARAIBLE
+
+os=('ubuntu' 'windows' 'kali') #array 
+os[3]="mac"  # add element at index 3
+#os[0]="linux"  # update element
+
+unset os[2] #remove element from array
+echo "${os[@]}" #print all
+echo "${os[0]}" #print value at 9 index
+echo "${os[1]}"
+echo "${!os[@]}" #print the index numbers
+echo "${#os[@]}" #print length of array
+
+string=safsdfasdfasaf
+echo "${string[@]}" #string as an array, 
+echo "${string[0]}" #string as an array, 
+echo "${string[1]}" #nothing should show, 
+echo "${#string[@]}" #length of "array" is 1, 
